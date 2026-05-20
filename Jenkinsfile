@@ -30,6 +30,7 @@ pipeline {
             steps {
                 bat '''
                 aws ecs update-service ^
+                --region ap-south-1 ^
                 --cluster %CLUSTER_NAME% ^
                 --service %SERVICE_NAME% ^
                 --force-new-deployment
