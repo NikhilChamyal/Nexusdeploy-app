@@ -88,7 +88,7 @@ app.get('/', (req, res) => {
             </div>
 
             <div class="footer">
-                Built by Nikhil Chamyal
+                Built by Nikhil Chamyal 🚀
             </div>
 
         </div>
