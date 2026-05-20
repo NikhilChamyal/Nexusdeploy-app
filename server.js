@@ -1,14 +1,16 @@
 const express = require('express');
-const app = express();
 
+const app = express();
 const PORT = 3088;
 
 app.get('/', (req, res) => {
-    res.send(`
+
+    const html = `
     <!DOCTYPE html>
     <html>
     <head>
         <title>NexusDeploy CI/CD</title>
+
         <style>
             body {
                 margin: 0;
@@ -27,33 +29,32 @@ app.get('/', (req, res) => {
                 background: rgba(255,255,255,0.05);
                 padding: 50px;
                 border-radius: 20px;
-                box-shadow: 0 0 25px rgba(0,255,170,0.3);
                 width: 80%;
                 max-width: 700px;
+                box-shadow: 0 0 25px rgba(0,255,170,0.3);
             }
 
             h1 {
-                font-size: 3rem;
                 color: #00ffae;
-                margin-bottom: 20px;
+                font-size: 3rem;
             }
 
             p {
-                font-size: 1.2rem;
                 color: #d1d5db;
+                font-size: 1.2rem;
                 line-height: 1.8;
             }
 
             .pipeline {
-                margin-top: 30px;
-                font-size: 1.1rem;
+                margin-top: 25px;
                 color: #38bdf8;
+                font-size: 1.1rem;
             }
 
             .success {
                 margin-top: 25px;
-                font-size: 1.4rem;
                 color: #22c55e;
+                font-size: 1.4rem;
                 font-weight: bold;
             }
 
@@ -62,31 +63,20 @@ app.get('/', (req, res) => {
                 color: #94a3b8;
                 font-size: 0.9rem;
             }
-
-            .glow {
-                animation: glow 2s infinite alternate;
-            }
-
-            @keyframes glow {
-                from {
-                    text-shadow: 0 0 10px #00ffae;
-                }
-                to {
-                    text-shadow: 0 0 25px #00ffae;
-                }
-            }
         </style>
     </head>
 
     <body>
 
         <div class="container">
-            <h1 class="glow">🚀 Full CI/CD Pipeline Working Successfully!</h1>
+
+            <h1>🚀 Full CI/CD Pipeline Working Successfully!</h1>
 
             <p>
-                This application has been automatically built, containerized,
-                pushed to Docker Hub, and deployed on AWS ECS Fargate
-                using a Jenkins CI/CD Pipeline.
+                This application was automatically built,
+                containerized, pushed to Docker Hub,
+                and deployed to AWS ECS Fargate
+                using Jenkins CI/CD Pipeline.
             </p>
 
             <div class="pipeline">
@@ -100,13 +90,16 @@ app.get('/', (req, res) => {
             <div class="footer">
                 Built by Nikhil Chamyal
             </div>
+
         </div>
 
     </body>
     </html>
-    `);
+    `;
+
+    res.send(html);
 });
 
 app.listen(PORT, '0.0.0.0', () => {
-    console.log(`Server running on port ${PORT}`);
+    console.log('Server running on port ' + PORT);
 });
