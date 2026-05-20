@@ -5,6 +5,6 @@ app.get('/', (req, res) => {
   res.send('NexusDeploy CI/CD Running!');
 });
 
-app.listen(3088, () => {
+app.listen(3088, '0.0.0.0', () => {
   console.log('Server running on port 3088');
 });
